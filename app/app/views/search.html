@@ -1,0 +1,51 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="app-page" ng-cloak>
+    <div class="title-bar">
+        <a class="btn bar" ng-click="$path('/list')"><i class="icon-chevron-left"></i></a>
+        <a class="btn bar search" href="#/search"><i class="icon-search"></i></a>
+        <div class="page-title">Tuotehaku</div>
+    </div>
+    <div class="app-content" id="listElement">
+        <div class="content-view">
+            <form id="product-search-form">
+                <div class="input-icon input-dropdown location-search-wrapper">
+                    <i class="icon-search"></i>
+                    <input name="search-term" id="product-search-input" class="input block" type="search" autocapitalize="off" autocorrect="off" autofocus placeholder="Hae tuotetta tai brändiä" ng-model="searchTerm">
+                </div>
+            </form>
+        </div>
+
+        <div class="list search-results-container" id="product-search-results">
+            <div class="list-item-wrapper" ng-repeat="result in results">
+
+                <div class="list-item search-result" ng-class="{active: success==result}">
+                    <a href="#/product/{{ result.product_id }}">
+                        <div class="list-item-thumb-wrapper"><img class="list-item-thumb" src="http://ostosnero.com/images/full/{{result.product_thumb}}" alt="{{result.product_name}}"/></div>
+                        <div class="list-item-info-wrapper">
+                            <!--<div class="list-item-brand">brand name</div>-->
+                            <div class="list-item-name">{{result.product_name}}</div>
+                        </div>
+                    </a>
+
+                    <div class="list-item-interactions-wrapper">
+                        <a class="btn flat list-item-add" ng-click="addToList(result.product_id, result)"><i ng-class="{'icon-plus': !result.busy, 'icon-refresh icon-spin': !!result.busy}"></i></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="loading" ng-if="status == 'fetching'">
+				<div class="spinner-balls">
+					<div class="bounce1"></div>
+					<div class="bounce2"></div>
+					<div class="bounce3"></div>
+				</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="toolbar">
+        <a class="btn bar home" href="#"><i class="icon-home"></i></a>
+    </div>
+</div>

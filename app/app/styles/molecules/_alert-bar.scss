@@ -1,0 +1,91 @@
+$height: 20px;
+
+.alert {
+	position: absolute;
+	top: $topBarHeight;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: $height;
+
+	font-size: 10px;
+	line-height: $height;
+	font-weight: 600;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	overflow: hidden;
+	white-space: no-wrap;
+
+	background: #1D72D4;
+
+
+
+	&.error {
+		background: #E22E07;
+	}
+
+	&.warning {
+		background: #EFBF0F;
+	}
+
+	&.success {
+		background: #77CC33;
+	}
+
+	&.ng-enter {
+		-webkit-animation: alert-appear 0.25s 1;
+		-moz-animation: alert-appear 0.25s 1;
+		animation:  alert-appear 0.25s 1;
+	}
+
+	&.ng-leave {
+		-webkit-animation: alert-disappear 0.25s 1;
+		-moz-animation: alert-disappear 0.25s 1;
+		animation:  alert-disappear 0.25s 1;
+	}
+}
+
+.alert-appear {
+	-webkit-animation: alert-appear 0.25s 1;
+	-moz-animation: alert-appear 0.25s 1;
+	animation:  alert-appear 0.25s 1;
+}
+
+.alert-disappear {
+	-webkit-animation: alert-appear 0.25s 1;
+	-moz-animation: alert-appear 0.25s 1;
+	animation:  alert-appear 0.25s 1;
+}
+
+@-webkit-keyframes alert-appear {
+	0% {-webkit-transform: translate3d(0, -20px, 0);}
+	100% {-webkit-transform: translate3d(0, 0, 0);}
+}
+
+@-moz-keyframes alert-appear {
+	0% {-moz-transform: translate3d(0, -20px, 0);}
+	100% {-moz-transform: translate3d(0, 0, 0);}
+}
+@keyframes alert-appear {
+	0% {transform: translate3d(0, -20px, 0);}
+	100% {transform: translate3d(0, 0, 0);}
+}
+
+@-webkit-keyframes alert-disappear {
+	0% {-webkit-transform: translate3d(0, 0, 0);}
+	99% {-webkit-transform: translate3d(0, -20px, 0);}
+	100% {display: none;}
+}
+
+@-moz-keyframes alert-disappear {
+	0% {-moz-transform: translate3d(0, 0, 0);}
+	99% {-moz-transform: translate3d(0, -20px, 0);}
+	100% {display: none;}
+}
+
+@keyframes alert-disappear {
+	0% {transform: translate3d(0, 0, 0);}
+	99% {transform: translate3d(0, -20px, 0);}
+	100% {display: none;}
+}

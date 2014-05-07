@@ -1,0 +1,25 @@
+.checkout-sums {
+	height: $touchTarget*2;
+
+	.checkout-sum-wrapper {
+		float: left;
+		width: 50%;
+	}
+
+	.checkout-sum {
+		font-size: 3.6rem;
+		line-height: 1;
+		text-align: center;
+	}
+	.checkout-sum-saved {
+		color: $blue;
+		font-weight: 600;
+	}
+
+	.checkout-sum-label {
+		float: left;
+		width: 100%;
+		font-size: 1.2rem;
+		color:  $muted;
+	}
+}
