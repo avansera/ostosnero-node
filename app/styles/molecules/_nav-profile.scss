@@ -1,0 +1,77 @@
+.nav-profile {
+	position: relative;
+	.avatar-wrapper {
+		width: $touchTarget*2;
+		height: auto;
+
+		.avatar {
+			width: 100%;
+		}
+	}
+
+	.info-wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+
+		margin: 0 0 0 $touchTarget*2;
+
+		white-space: nowrap;
+		overflow: hidden;
+
+		.user-info-wrapper {
+			float: left;
+			width: 100%;
+			height: $touchTarget;
+			padding: 0 0.25em;
+
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		.stats-info-wrapper {
+			@extend .user-info-wrapper;
+			border-top: 1px solid rgba($white, 0.2);
+			background: rgba($white, 0.1);
+		}
+
+		.user-info-name {
+			font-size: 1.25em;
+			font-weight: 600;
+			line-height: 1;
+
+			text-transform: capitalize;
+		}
+
+		.user-info-email {
+			color: $muted;
+			font-size: 0.8em;
+		}
+
+		.stats-info-item {
+			position: relative;
+			float: left;
+			width: 50%;
+			height: 100%;
+
+			text-align: center;
+
+			.stats-item-value {
+				font-size: 1.5em;
+			}
+
+			.stats-item-label {
+				position: absolute;
+				bottom: 0.25em;
+				left: 0;
+				right: 0;
+
+				font-size: 0.8em;
+				color: $muted;
+			}
+
+		}
+	}
+}

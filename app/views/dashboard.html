@@ -1,0 +1,51 @@
+
+<section class="top-bar">
+
+    <button class="toolbar-item button toolbar-button menu-link"><i class="icon-reorder"></i></button>
+
+    <div class="toolbar-item primary page-title">{{pageName}}</div>
+
+    <button class="toolbar-item button toolbar-button search-link"><i class="icon-search"></i></button>
+
+    <!--<div class="location-container">
+        <div id="location" class="location-text"></div>
+    </div>-->
+
+
+</section>
+
+<section id="dashboard" class="dash-container">
+    <ul>
+        <li ng-repeat="product in products">{{product.name}}</li>
+    </ul>
+
+    <div class="list-item" ng-repeat="product in products">
+        <div class="top">
+            <div class="list-item-pic-wrapper">
+                <img class="list-item-pic" src="http://placehold.it/64x64" alt="product picture"/>
+            </div>
+
+            <div class="list-item-text-wrapper">
+                <p class="text-brand">brand name</p>
+                <p class="text-name">{{product.name}}</p>
+            </div>
+
+            <div class="list-item-quantity-wrapper"><span class="list-item-quantity">{{product.quantity}}</span></div>
+
+            <div class="list-item-dropdown-button"></div>
+        </div>
+        <div class="controls">
+            <div class="controls-remove"></div>
+            <div class="controls-quantity-remove"></div>
+            <div class="controls-quantity-add"></div>
+            <div class="controls-info"></div>
+        </div>
+    </div>
+</section>
+<section class="toolbar">
+
+    <button class="toolbar-item button toolbar-button refresh"><i class="icon-home"></i></button>
+    <button class="toolbar-item button toolbar-button primary sort-list"><i class="icon-shopping-cart"></i></button>
+    <div class="sort-list-button-background-container"><div class="sort-list-button-background"></div></div>
+    <button class="toolbar-item button toolbar-button get-location"><i class="icon-map-marker"></i></button>
+</section>

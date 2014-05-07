@@ -1,0 +1,56 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="app-page">
+	<div class="title-bar">
+		<a class="btn bar menu" ng-click="$toggleMenu()"><i class="icon-reorder"></i></a>
+		<a class="btn bar search" href="#/search"><i class="icon-search"></i></a>
+
+		<div class="page-title">Ostoslista</div>
+	</div>
+
+	<div class="app-content list-view" id="listElement">
+		<div on-alert alert="alert"></div>
+		<div class="list" id="list-container">
+			<div class="list-item-wrapper" ng-repeat="product in list.products" ng-class="{expanded: openItem == product}">
+
+				<div class="list-item" data-id="{{ product.product_id }}" ng-click="productInfo(product.list_item_id)">
+
+					<div class="list-item-thumb-wrapper">
+						<img class="list-item-thumb" src="http://ostosnero.com/images/full/{{product.product_thumb}}" alt="{{product.product_name}}"/>
+					</div>
+					<div class="list-item-info-wrapper">
+						<!--<div class="list-item-brand">brand name</div>-->
+						<div class="list-item-name">{{product.product_name}}</div>
+					</div>
+					<div class="list-item-quantity-wrapper" ng-show="product.quantity!=undefined">
+						<div class="list-item-quantity">{{product.quantity}}</div>
+						<small>kpl.</small>
+					</div>
+					<div class="list-item-menu-wrapper">
+						<a class="btn flat list-item-menu-link" ng-click="showMenu(product);$event.stopPropagation()">
+							<i class="icon-ellipsis-vertical"></i>
+						</a>
+					</div>
+
+				</div>
+				<div class="list-item-menu" data-id="{{product.list_item_id}}">
+					<a class="btn flat del" ng-click="removeFromList(product.list_item_id, product)">
+						<i class="icon-trash"></i>
+					</a>
+					<a class="btn flat remove" ng-click="changeQuantity(product.list_item_id, -1); $event.stopPropagation()"><i class="icon-minus"></i></a>
+					<a class="btn flat add" ng-click="changeQuantity(product.list_item_id, 1); $event.stopPropagation()"><i class="icon-plus"></i></a>
+					<a class="btn flat info" href="#/list/{{ product.list_item_id }}"><i class="icon-info-sign"></i></a>
+				</div>
+			</div>
+
+		</div>
+		<!-- <div class="loading" ng-hide="list!=undefined"><i class="icon-ellipsis-horizontal"></i></div> -->
+	</div>
+
+	<div class="toolbar">
+		<a class="btn bar home" href="#"><i class="icon-home"></i></a>
+		<a id="refresh-btn" class="btn bar location" ng-class="{'icon-spin': refreshing==true}" ng-click="getLists()"><i
+				class="icon-refresh"></i></a>
+
+		<div class="go-shopping-button" ng-click="sort()"><i class="icon-shopping-cart"></i></div>
+	</div>
+</div>

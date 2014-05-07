@@ -1,0 +1,80 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="app-page">
+    <div class="title-bar">
+        <a class="btn bar menu" ng-click="$toggleMenu()"><i class="icon-reorder"></i></a>
+        <a class="btn bar search" href="#/search"><i class="icon-search"></i></a>
+        <div class="page-title">Paikannus</div>
+    </div>
+    <div class="app-content content-view darker" id="listElement">
+		<div on-alert error="error"></div>
+        <div class="input-icon input-dropdown location-search-wrapper">
+			<form ng-submit="searchLocation()">
+				<i class="icon-location-arrow"></i>
+				<input name="location-term" class="input block" type="search" autocapitalize="off" autocorrect="off" placeholder="Hae kaupunkia/paikkakuntaa" ng-model="locationTerm">
+				<button class="btn flat pass-reveal"><i class="icon-search"></i></button>
+			</form>
+
+        </div>
+
+        <div class="list-wrapper locations">
+            <h3 class="list-label">Omat paikat <i ng-if="!!gettingLocations" class="icon-spin icon-refresh"></i></h3>
+            <div class="list chosen-location-list">
+
+
+
+                <div class="list-item icon chosen-location current-location" ng-click="openMap()">
+                    <div class="list-item-icon chosen-location-icon" ng-class="{error: locationError==='error',warning: locationError==='warning'}">
+                        <i class="icon-map-marker"></i>
+                    </div>
+                    <div class="list-item-text">
+                        <span class="list-item-label">Käytä nykyistä sijaintiasi</span>
+                        <span class="list-item-info">{{ currentLocation }}</span>
+                    </div>
+                    <div class="interaction-wrapper">
+
+                        <div class="interaction list-item-button location-refresh" ng-click="refreshLocation();$event.stopPropagation()"><i class="icon-refresh" ng-class="{'icon-spin': gettingCurrentLocation===true}"></i></div>
+
+                        <div class="interaction switch-wrapper current-location-toggle" ng-class="{on: !!currentLocationEnabled}" ng-click="toggleCurrentLocation();$event.stopPropagation()">
+                            <div class="switch">
+                                <div class="knob"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+				<div class="list-item icon chosen-location" ng-repeat="location in chosenLocations" ng-click="openMap(location)">
+                    <div class="list-item-icon chosen-location-icon">
+                        <i class="icon-shopping-cart"></i>
+                    </div>
+                    <div class="list-item-text">
+                        <span class="list-item-label"><strong>{{ location.shop_chain }}</strong> {{ location.shop_location }}</span>
+                        <span class="list-item-info">{{ location.address }}</span>
+                    </div>
+
+					<div class="interaction-wrapper">
+						<div class="interaction list-item-button" ng-click="removeLocation(location);$event.stopPropagation()"><i ng-class="{'icon-minus': !location.busy, 'icon-refresh icon-spin': !!location.busy}"></i></div>
+					</div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+		<!--<div class="alert" ng-if="errors.length">
+			<a class="close" ng-click="$close()">&times;</a>
+
+			<h3>Alert</h3>
+			<div ng-repeat="error in errors">
+				{{ error }}
+			</div>
+		</div>-->
+        <!--<div class="loading" ng-hide=""><i class="icon-ellipsis-horizontal"></i></div>-->
+    </div>
+
+    <div class="toolbar">
+        <a class="btn bar home" href="#"><i class="icon-home"></i></a>
+    </div>
+</div>

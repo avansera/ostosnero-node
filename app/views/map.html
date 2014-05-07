@@ -1,0 +1,27 @@
+<div class="app-page">
+	<div class="title-bar">
+		<a class="btn bar" ng-click="$path('/location')"><i class="icon-chevron-left"></i></a>
+		<a class="btn bar search" href="#/search"><i class="icon-search"></i></a>
+
+		<div class="page-title">{{ pageTitle }}</div>
+	</div>
+	<div class="app-content" id="map-canvas">
+		<!--<google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="height: 100%;width:100%;float:left;">
+			<div ng-init="getMap(zoom)">{{ map }}</div>
+		</google-map>-->
+		<div gm-map
+			 gm-map-id="'map'"
+			 gm-map-options="options"
+			 style="height: 100%;width:100%;float:left;">
+			<gm-markers gm-objects="markers"
+						gm-get-lat-lng="{ lat: object.latitude, lng: object.longitude }"
+						gm-get-marker-options="{icon: object.icon, shadow: object.shadow}">
+			</gm-markers>
+		</div>
+
+	</div>
+	<div class="toolbar">
+		<a class="btn bar home" href="#"><i class="icon-home"></i></a>
+	</div>
+</div>
+

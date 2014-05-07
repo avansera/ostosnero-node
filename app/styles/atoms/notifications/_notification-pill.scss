@@ -1,0 +1,31 @@
+.notification {
+	display: inline-block;
+	min-width: $touchTarget/2;
+	min-height: $touchTarget/2;
+	background: rgba($black, 0.5);
+	padding: 0 0.25em;
+	font-weight: 600;
+	line-height: $touchTarget/2;
+	text-align: center;
+	color: $white;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&.red {
+		background: $red;
+	}
+
+	&.green {
+		background: $blue;
+	}
+
+	&.inverse {
+		background: rgba($white, 0.5);
+	}
+}
