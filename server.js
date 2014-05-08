@@ -20,6 +20,9 @@ if (cluster.isMaster) {
 } else {
 
 	var express = require('express');
+	var mysql = require('mysql');
+	var dbConfig = require('./lib/config/dbConf.json');
+	var pool = mysql.createPool(dbConfig);
 
 	/**
 	 * Main application file
@@ -35,6 +38,8 @@ if (cluster.isMaster) {
 
 	// Express settings
 	require('./lib/config/express')(app);
+
+	require('./lib/config/dbConnection')(pool);
 
 	// Routing
 	require('./lib/routes')(app);
