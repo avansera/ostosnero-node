@@ -1,0 +1,20 @@
+.btn.bar {
+	height: 100%;
+	width: $touchTarget;
+	padding: 0;
+	box-shadow: none;
+	background: transparent;
+	font-size: 24pt;
+}
+
+.title-bar {
+	.bar {
+		line-height: $topBarHeight;
+	}
+}
+
+.toolbar {
+	.bar {
+		line-height: $toolbarHeight;
+	}
+}

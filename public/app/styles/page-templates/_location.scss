@@ -1,0 +1,95 @@
+
+.location-search-wrapper {
+	margin: 1em 0;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.chosen-location {
+	.chosen-location-icon {
+		color: $green;
+
+		&.disabled {
+			color: $muted;
+		}
+
+		&.warn {
+			color: $yellow;
+		}
+
+		&.error {
+			color: $red;
+		}
+	}
+}
+
+.chosen-location-list {
+	.current-location {
+		padding-right: $touchTarget*2 !important;
+	}
+}
+
+// fading white right border to fade out long location names.
+.locations {
+	.list-item {
+
+
+		.list-item-text {
+			position: relative;
+			margin: 0.25em 0 0;
+
+			&:after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 0;
+
+				width: $touchTarget;
+				height: $touchTarget;
+
+				@include gradient-transparent($white);
+
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotate(-90deg);
+				-ms-transform: rotate(-90deg);
+				-o-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
+
+
+
+		}
+
+		&:nth-of-type(even) {
+			.list-item-text {
+				position: relative;
+				margin: 0.25em 0 0;
+
+				&:after {
+					content: "";
+					position: absolute;
+					right: 0;
+					top: 0;
+
+					width: $touchTarget;
+					height: $touchTarget;
+
+					@include gradient-transparent(darken($white, 2.5%));
+
+					-webkit-transform: rotate(-90deg);
+					-moz-transform: rotate(-90deg);
+					-ms-transform: rotate(-90deg);
+					-o-transform: rotate(-90deg);
+					transform: rotate(-90deg);
+				}
+
+
+
+			}
+		}
+
+
+	}
+}

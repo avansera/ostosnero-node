@@ -1,0 +1,32 @@
+<div class="app-page start-page">
+    <h2>Kirjadu</h2>
+
+    <form ng-submit="submit()" name="loginForm" id="login-form">
+        <div class="input-group login-inputs">
+            <div class="input-icon">
+                <i class="icon-envelope-alt"></i>
+                <input type="email" class="input block" name="user" placeholder="email" autocapitalize="off" autocorrect="off" autofocus="" ng-model="loginUser" tabindex="1">
+            </div>
+            <div class="input-icon">
+                <i class="icon-unlock"></i>
+                <input id="pass" type="password" class="input block" name="pass" placeholder="password" ng-model="loginPass" tabindex="2">
+                <a class="btn flat pass-reveal" ng-click="$showPass(loginForm.pass)"><i class="icon-eye-close"></i></a>
+            </div>
+
+        </div>
+        <div class="btn-group">
+            <a class="btn sub" ng-click="back()"><i class="icon-chevron-left"></i></a>
+            <button class="btn sup" type="submit" tabindex="3">Kirjadu sisään <i class="icon-spin icon-refresh" ng-if="!!busy"></i></button>
+        </div>
+    </form>
+
+    <!--
+    TODO: add password recovery
+    <div class="btn-container">
+        <a href="#/pass-recover" class="btn block cta forgot-pass" type="button">Forgot password?</a>
+    </div>-->
+    <div class="label" ng-show="loginForm.$error.message && loginForm.$dirty">
+        <a href="#" class="close" ng-click="hideError()">&times;</a>
+        {{loginForm.$error.message}}
+    </div>
+</div>

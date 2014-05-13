@@ -1,0 +1,24 @@
+.label {
+	$dimension: 27pt;
+	@extend .alert;
+	width: 95%;
+	height: $dimension;
+	margin: 1em 2.5%;
+	padding: 0 0.5em;
+	line-height: $dimension;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 0.9em;
+	font-weight: 600;
+
+	.close {
+		width: $dimension;
+		height: $dimension;
+		line-height: $dimension;
+	}
+
+	&.info {
+		background: #009DDC;
+	}
+}

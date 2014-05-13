@@ -1,0 +1,63 @@
+/*
+Syntax error: Undefined variable: "$blue".
+        on line 3 of _start-screen.scss
+        from line 1 of pre-login.scss
+
+1: @import "./_start-screen";
+2: 
+3: .derp {}
+
+Backtrace:
+_start-screen.scss:3
+pre-login.scss:1
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/script/variable.rb:49:in `_perform'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/script/node.rb:40:in `perform'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `map'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `map'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `map'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/tree/root_node.rb:20:in `render'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/engine.rb:315:in `_render'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/engine.rb:262:in `render'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `each'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/plugin.rb:81:in `update_stylesheets'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/exec.rb:435:in `watch_or_update'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/exec.rb:318:in `process_result'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/exec.rb:41:in `parse'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/lib/sass/exec.rb:21:in `parse!'
+C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/sass-3.2.10/bin/scss:9:in `<top (required)>'
+C:/RailsInstaller/Ruby1.9.3/bin/scss:23:in `load'
+C:/RailsInstaller/Ruby1.9.3/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$blue\".\A         on line 3 of _start-screen.scss\A         from line 1 of pre-login.scss\A \A 1: @import \"./_start-screen\";\A 2: \A 3: .derp {}"; }

@@ -1,0 +1,104 @@
+.input {
+	&:focus {
+		outline: none;
+	}
+	&.block {
+		$corners: 3px;
+		display: block;
+		width: 100%;
+		height: $touchTarget;
+		margin: 0 0 0.75em;
+		padding: 0 16pt;
+		border: 1px solid $lightGrey;
+		border-top: none;
+
+		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25) inset;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		-webkit-border-radius: $corners;
+		-moz-border-radius: $corners;
+		border-radius: $corners;
+
+		&:focus {
+			border: 1px solid $muted;
+			background: $white;
+			color: $black;
+
+			&::-webkit-input-placeholder {
+				color: $blue;
+			}
+
+			&::-moz-input-placeholder {
+				color: $blue;
+			}
+		}
+
+	}
+
+	&.error {
+		border-color: $red;
+
+	}
+
+}
+
+.input-group {
+	$corners: 3px;
+
+	width: 95%;
+	margin: 0 2.5%;
+	border: 1px solid $lightGrey;
+	background: $white;
+	//box-shadow: 0 2px 0 rgba(0,0,0,0.25) inset;
+
+	-webkit-border-radius: $corners;
+	-moz-border-radius: $corners;
+	border-radius: $corners;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	&.focus {
+		border-color: $muted;
+	}
+	.input {
+		&.block {
+			margin: 0;
+			box-shadow: none;
+			border: none;
+			background: transparent;
+			-webkit-border-radius: 0;
+			-moz-border-radius: 0;
+			border-radius: 0;
+			&+.block {
+				border-top: 1px solid $lightGrey;
+			}
+		}
+	}
+}
+
+.input-icon {
+	position: relative;
+	.input {
+		padding: 0 16pt 0 32pt;
+	}
+
+	[class ^= "icon-"] {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+		width: 32pt;
+		height: $touchTarget;
+
+		font-size: 1.2em;
+		line-height: $touchTarget;
+		color: $muted;
+		text-align: center;
+	}
+}

@@ -1,0 +1,38 @@
+<div ng-include src="'views/menu.html'"></div>
+<div class="app-page">
+    <div class="title-bar">
+		<a class="btn bar" ng-click="$path('/location')"><i class="icon-chevron-left"></i></a>
+        <a class="btn bar search" href="#/search"><i class="icon-search"></i></a>
+        <div class="page-title">Paikannus</div>
+    </div>
+    <div class="app-content list-view darker" id="listElement">
+
+
+		<div class="list search-results-container" id="product-search-results">
+			<div class="list-item-wrapper" ng-repeat="location in locations">
+
+				<div class="list-item search-result" ng-class="{active: location.success}">
+					<a href="#/location/map/{{ location.latitude }}/{{ location.longitude }}">
+						<div class="list-item-thumb-wrapper"><img class="list-item-thumb" src="{{ logo(location.shop_chain) }}" alt="{{location.name}}"/></div>
+						<div class="list-item-info-wrapper">
+							<div class="list-item-name"><strong>{{ location.shop_location }}</strong> {{location.shop_chain}}</div>
+							<div class="list-item-brand">{{ location.address }}</div>
+						</div>
+					</a>
+
+					<div class="list-item-interactions-wrapper">
+						<a class="btn flat" ng-click="addLocation(location)"><i ng-class="{'icon-plus': !location.busy, 'icon-refresh icon-spin': !!location.busy}"></i></a>
+					</div>
+
+				</div>
+			</div>
+			<div class="loading" ng-show="status == 'fetching'"><i class="icon-ellipsis-horizontal"></i></div>
+		</div>
+
+        <!--<div class="loading" ng-hide=""><i class="icon-ellipsis-horizontal"></i></div>-->
+    </div>
+
+    <div class="toolbar">
+        <a class="btn bar home" href="#"><i class="icon-home"></i></a>
+    </div>
+</div>
