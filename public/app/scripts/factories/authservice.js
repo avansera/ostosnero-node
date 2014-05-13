@@ -13,6 +13,10 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 		})
 			.success(function(data, status) {
 
+				if(status === 204) {
+					dfd.reject();
+				}
+
 				$log.info(status);
 				if(!!data) {
 					$rootScope.user = data.user_info;
@@ -44,29 +48,22 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 		var dfd = $q.defer();
 		$http({
 			method: 'POST',
-			url: '../../api/user/login',
+			url: '/api/user/login',
 			data: {email: email, password: pass}
 		})
 			.success(function (data) {
 
-				if (!data.success) {
-					dfd.reject(data.error);
-				}
+				$rootScope.user = data.user_info;
 
-				if(!!data.data) {
+				mixpanel.track("User login", {
+					"$email": data.user_info.email
+				});
 
-					$rootScope.user = data.data;
-
-					mixpanel.track("User login", {
-						"$email": data.data.email
-					});
-
-					mixpanel.identify(data.data.email);
-					mixpanel.people.set({
-						"Name": data.data.name,
-						"$email": data.data.email
-					});
-				}
+				mixpanel.identify(data.user_info.email);
+				mixpanel.people.set({
+					"Name": data.user_info.name,
+					"$email": data.user_info.email
+				});
 
 				dfd.resolve(data);
 
