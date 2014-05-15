@@ -1,16 +1,10 @@
 <div class="app-page start-page">
     <div class="logo-container">
-        <div class="alert warning" ng-show="connError">
-            <a href="#" class="close">&times;</a>
-            <h3>connection error</h3>
-            {{connError}}
-
-        </div>
         <div class="logo"></div>
     </div>
     <div class="buttons-container">
         <!--<a href="#" class="btn block facebook">Login with facebook</a>-->
-        <a href="#/register/" class="btn block cta account-create">Luo uusi tilli</a>
-        <a href="#/login/" class="btn block login">Kirjadu sisään</a>
+        <button type="button" ng-click="$path('/register')" class="splash_Button splash_Button-Primary">Sign Up</button>
+        <button type="button" ng-click="$path('/login')" class="splash_Button">Log In</button>
     </div>
 </div>
