@@ -6,6 +6,7 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 	console.log($scope.signupForm);
 
 	$scope.loading = false;
+	$scope.formValid = false;
 
 	$scope.hideError = function () {
 		$scope.signupForm.$error.message = null;
@@ -30,15 +31,19 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 		$scope.signupForm.$setDirty();
 
 		if (!email || email.length === 0) {
-			$scope.signupForm.$error.message = "Sähkopostiosoite puuttuu";
+			$scope.signupForm.$error.message = "Email address missing";
 
 		}
 		else if (!username || username.length === 0) {
-			$scope.signupForm.$error.message = "no username entered";
+			$scope.signupForm.$error.message = "Username is missing";
 		}
 		else if (!pass || pass.length === 0) {
-			$scope.signupForm.$error.message = "no password entered";
-		} else {
+			$scope.signupForm.$error.message = "Password is empty";
+		}
+		else if(pass.length < 6) {
+			$scope.signupForm.$error.message = "Password must be at least 6 characters";
+		}
+		else {
 
 
 			$accountsService.signup(email, username, pass)
@@ -52,7 +57,12 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 					},
 					function (reason) {
 						$scope.loading = false;
-						$scope.signupForm.$error.message = reason;
+						switch(reason.err) {
+							case "ERR_EMAIL_EXISTS":
+								$scope.signupForm.$error.message = "Email is already registered";
+								break;
+						}
+
 
 					});
 		}

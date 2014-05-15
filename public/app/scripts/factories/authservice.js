@@ -77,7 +77,7 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 
 	function _logout() {
 		$http({
-			url: '../../api/user/logout',
+			url: '/api/user/logout',
 			method: 'GET'
 		});
 	}
@@ -86,15 +86,11 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 		var dfd = $q.defer();
 
 		$http({
-			url: '../../api/user/register',
+			url: '/api/user/register',
 			method: 'POST',
 			data: {email: email, name: username, password: pass}
 		})
-			.success(function (data) {
-
-				if(!data.success) {
-					dfd.reject(data.error);
-				}
+			.success(function (data, status) {
 
 				mixpanel.track("New user registration", {
 					"$email": email,

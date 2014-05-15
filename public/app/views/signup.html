@@ -1,35 +1,30 @@
 <div class="app-page start-page">
-    <h2>Luo uusi tilli</h2>
 
 
-
-    <form id="signup-form-01" name="signupForm" ng-submit="submit()">
-        <fieldset>
-            <div class="input-icon">
-                <i class="icon-envelope-alt"></i>
-                <input class="input block" type="email" placeholder="Sähköpostiosoite" name="passInput" ng-model="registerEmail">
-            </div>
-            <div class="input-icon">
-                <i class="icon-user"></i>
-                <input class="input block" type="text" placeholder="Nimimerkki" autocapitalize="off" autocorrect="off" ng-model="registerUser">
-            </div>
-
-        </fieldset>
-
-        <fieldset>
-            <div class="input-icon">
-                <i class="icon-lock"></i>
-                <input class="input block" type="password" placeholder="Salasana" id="pass" name="pass" ng-model="registerPass">
-				<a class="btn flat pass-reveal" ng-click="$showPass(signupForm.pass)"><i class="icon-eye-close"></i></a>
-            </div>
-        </fieldset>
-        <div class="btn-group">
-            <a href="#" class="btn sub"><i class="icon-chevron-left"></i></a>
-            <button class="btn sup" type="submit">Valmis <i class="icon-refresh icon-spin" ng-show="!!loading"></i></button>
-        </div>
-    </form>
-    <div class="label" ng-show="signupForm.$error.message && signupForm.$dirty">
-        <a href="#" class="close" ng-click="hideError()">&times;</a>
-        {{signupForm.$error.message}}
-    </div>
+	<form id="signup-form-01" class="splash_Form" name="signupForm" ng-submit="submit()">
+		<header class="splash_FormHeader">
+			<h2 class="splash_FormTitle">Sign Up</h2>
+			<button ng-click="$path('/')" class="splash_Button-Nav splash_Button-Nav-arrowLeft"></button>
+		</header>
+		<div class="splash_Form-Input input-icon">
+			<i class="icon-envelope-alt"></i>
+			<input class="input block" type="email" placeholder="Sähköpostiosoite" name="passInput" ng-model="registerEmail">
+		</div>
+		<div class="splash_Form-Input input-icon">
+			<i class="icon-user"></i>
+			<input class="input block" type="text" placeholder="Nimimerkki" autocapitalize="off" autocorrect="off" ng-model="registerUser">
+		</div>
+		<div class="splash_Form-Input input-icon">
+			<i class="icon-lock"></i>
+			<input class="input block" type="password" placeholder="Salasana" id="pass" name="pass" ng-model="registerPass">
+			<a class="btn flat pass-reveal" ng-click="$showPass(signupForm.pass)"><i class="icon-eye-close"></i></a>
+		</div>
+		<button class="splash_Button splash_Button-Floating">
+			Finish
+			<i class="icon-refresh icon-spin" ng-if="loading"></i>
+		</button>
+	</form>
+	<div class="label" ng-show="signupForm.$error.message && signupForm.$dirty">
+		{{signupForm.$error.message}}
+	</div>
 </div>

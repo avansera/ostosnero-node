@@ -8,48 +8,52 @@ $buttonWidth: 44pt;
 @import "normalize";
 @import "font-awesome";
 @import "helpers";
-@import "_structure";
+@import "structure";
 
 //atoms
-@import "atoms/buttons/_block-button";
-@import "atoms/buttons/_bar-button";
-@import "atoms/buttons/_flat-button";
-@import "atoms/buttons/_shopping-button";
-@import "atoms/inputs/_block-input";
-@import "atoms/inputs/_inline-input";
-@import "atoms/alerts/_alert-block";
-@import "atoms/labels/_block-label";
-@import "atoms/notifications/_notification-pill";
-@import "molecules/_top-down-list";
-@import "atoms/switch/_switch";
-@import "atoms/_well";
+@import "atoms/buttons/block-button";
+@import "atoms/buttons/bar-button";
+@import "atoms/buttons/flat-button";
+@import "atoms/buttons/shopping-button";
+@import "atoms/inputs/block-input";
+@import "atoms/inputs/inline-input";
+@import "atoms/alerts/alert-block";
+@import "atoms/labels/block-label";
+@import "atoms/notifications/notification-pill";
+@import "molecules/top-down-list";
+@import "atoms/switch/switch";
+@import "atoms/well";
+
 
 
 //molecules
-@import "molecules/_title-bar";
-@import "molecules/_toolbar";
-@import "molecules/_nav-item";
-@import "molecules/_shopping-list-item";
-@import "molecules/_list-item-menu";
-@import "molecules/_sorted-list";
-@import "molecules/_checkout-summary";
-@import "molecules/_nav-profile";
-@import "molecules/_loader-balls";
+@import "molecules/title-bar";
+@import "molecules/toolbar";
+@import "molecules/nav-item";
+@import "molecules/shopping-list-item";
+@import "molecules/list-item-menu";
+@import "molecules/sorted-list";
+@import "molecules/checkout-summary";
+@import "molecules/nav-profile";
+@import "molecules/loader-balls";
 @import "molecules/alert-bar";
-//@import "molecules/_list-item";
+@import "molecules/splash-button";
+@import "molecules/splash-form";
+@import "molecules/splash-form-header";
+//@import "molecules/list-item";
 
 
 
 // pages
-@import "page-templates/_start-screen";
-@import "page-templates/_login-screen";
-@import "page-templates/_signup-screen";
+@import "page-templates/start-screen";
+@import "page-templates/login-screen";
+@import "page-templates/signup-screen";
 
-@import "page-templates/_nav-menu";
-@import "page-templates/_shopping-list-screen";
-@import "page-templates/_product-info-screen";
-@import "page-templates/_location";
-@import "page-templates/_search";
+@import "page-templates/nav-menu";
+@import "page-templates/shopping-list-screen";
+@import "page-templates/product-info-screen";
+@import "page-templates/location";
+@import "page-templates/search";
 
 // STRUCTURE
 
