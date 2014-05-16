@@ -1,7 +1,10 @@
 <div class="app-page start-page">
-    <h2>Kirjadu</h2>
 
     <form ng-submit="submit()" name="loginForm" id="login-form">
+		<header class="splash_FormHeader">
+			<h2 class="splash_FormTitle">Log In</h2>
+			<button ng-click="$path('/')" class="splash_Button-Nav splash_Button-Nav-arrowLeft"></button>
+		</header>
         <div class="input-group login-inputs">
             <div class="input-icon">
                 <i class="icon-envelope-alt"></i>
@@ -14,10 +17,10 @@
             </div>
 
         </div>
-        <div class="btn-group">
-            <a class="btn sub" ng-click="back()"><i class="icon-chevron-left"></i></a>
-            <button class="btn sup" type="submit" tabindex="3">Kirjadu sisään <i class="icon-spin icon-refresh" ng-if="!!busy"></i></button>
-        </div>
+		<button class="splash_Button splash_Button-Floating">
+			Log in
+			<i class="icon-refresh icon-spin" ng-if="loading"></i>
+		</button>
     </form>
 
     <!--
@@ -26,7 +29,6 @@
         <a href="#/pass-recover" class="btn block cta forgot-pass" type="button">Forgot password?</a>
     </div>-->
     <div class="label" ng-show="loginForm.$error.message && loginForm.$dirty">
-        <a href="#" class="close" ng-click="hideError()">&times;</a>
         {{loginForm.$error.message}}
     </div>
 </div>
