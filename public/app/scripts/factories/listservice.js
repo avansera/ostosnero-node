@@ -18,15 +18,12 @@ angular.module('App.Services').factory('listService', function ($rootScope, $htt
 		var dfd = $q.defer();
 
 		$http({
-			url: '../../api/list',
+			url: '/api/list',
 			method: 'GET'
 		})
 			.success(function(data) {
-				if(!data.success) {
-					dfd.reject(data.error);
-				}
 
-				$rootScope.list = data.data;
+				$rootScope.list = data;
 				dfd.resolve(data.message);
 			})
 			.error(function(reason) {
@@ -40,8 +37,9 @@ angular.module('App.Services').factory('listService', function ($rootScope, $htt
 		var dfd = $q.defer();
 
 		$http({
-			url: '../../api/list/add/' + productId,
-			method: 'GET'
+			url: '/api/list/add',
+			method: 'PUT',
+			data: {product_id: productId}
 		})
 			.success(function (data) {
 				if(!data.success) dfd.reject(data.error);
@@ -63,8 +61,8 @@ angular.module('App.Services').factory('listService', function ($rootScope, $htt
 		var dfd = $q.defer();
 
 		$http({
-			url: '../../api/list/remove/' + listItemId,
-			method: 'get'
+			url: '/api/list/remove/' + listItemId,
+			method: 'DELETE'
 		})
 			.success(function(data) {
 				if(!data.success) dfd.reject(data.error);
@@ -80,11 +78,11 @@ angular.module('App.Services').factory('listService', function ($rootScope, $htt
 	function _changeQuantity(listItemId, quantity) {
 		var dfd = $q.defer();
 		$http({
-			url: '../../api/list/quantity/' + listItemId + '/' + quantity,
-			method: 'get'
+			url: '/api/list/quantity',
+			method: 'PUT',
+			data: {quantity: quantity, list_item_id: listItemId}
 		})
 			.success(function(status) {
-				if(!status.success) dfd.reject(status.error);
 				dfd.resolve();
 			})
 			.error(function(reason) {
@@ -92,11 +90,6 @@ angular.module('App.Services').factory('listService', function ($rootScope, $htt
 			});
 		return dfd.promise;
 	}
-/*
-	function _addProduct(productId) {
-		var dfd = $q.defer();
-		return dfd.promise;
-	}*/
 
 	return {
 		getList: _getList,

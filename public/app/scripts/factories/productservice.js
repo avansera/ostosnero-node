@@ -13,15 +13,13 @@ angular.module('App.Services').factory('ProductService', function ($http, $q, $l
 	function _getSearchResults(term) {
 			var dfd = $q.defer();
 			$http({
-				url: '../../api/search/' + term,
+				url: '/api/product/search/' + term,
 				method: 'get'
 			})
 				.success(function (data) {
 					console.log(data);
 
-					if(!data.success) dfd.reject(data.error);
-
-					dfd.resolve(data.data);
+					dfd.resolve(data);
 					mixpanel.track("User searched for products", {
 						"term": term
 					});
