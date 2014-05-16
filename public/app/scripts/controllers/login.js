@@ -1,8 +1,8 @@
 angular.module('App.Controllers').controller('LoginCtrl', function($q, $http, $scope, $rootScope, $location, $accountsService) {
     console.log('login controller');
 
-    $scope.error = false;
-    console.log($scope.loginForm);
+    $scope.error	= false;
+	$scope.busy		= false;
 
 
     $scope.hideError = function() {
@@ -26,45 +26,31 @@ angular.module('App.Controllers').controller('LoginCtrl', function($q, $http, $s
             $scope.loginForm.$error.message = "Password not entered";
         } else {
 
-            //toggleSpinner($('#login-form button[type="submit"]'));
 			$scope.busy = true;
 
-            formLogin = $accountsService.login(user, pass);
 
-            formLogin.then(
-				function(status) {
-					$scope.busy = false;
-					/**
-					 * if login api returns errors,
-					 * set the scope error message to the
-					 * error received...
-					 *
-					 * this will then be shown as an alert label in the view.
-					 */
-					//toggleSpinner($('#login-form button[type="submit"]'));
-					if (!!status.error) {
-						$scope.loginForm.$error.message = status.error;
-					}
-					else {
+
+			$accountsService.login(user, pass)
+				.then(
+					function(status) {
+						$scope.busy = false;
 						$rootScope.auth = true;
 						$location.path('/list/');
+					},
+					function(reason) {
+						$scope.busy = false;
+						//toggleSpinner($('#login-form button[type="submit"]'));
+						if(reason.err) {
+							switch(reason.err) {
+								case "ERR_PASS_NOMATCH":
+									$scope.loginForm.$error.message = "Wrong password";
+									break;
+							}
+						} else {
+							$scope.loginForm.$error.message = reason;
+						}
 
-					}
-            },
-			function(reason) {
-				$scope.busy = false;
-                //toggleSpinner($('#login-form button[type="submit"]'));
-				if(reason.err) {
-					switch(reason.err) {
-						case "ERR_PASS_NOMATCH":
-							$scope.loginForm.$error.message = "Wrong password";
-							break;
-					}
-				} else {
-					$scope.loginForm.$error.message = reason;
-				}
-
-            });
+					});
 
         }
 

@@ -5,7 +5,7 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 	//console.log(email);
 	console.log($scope.signupForm);
 
-	$scope.loading = false;
+	$scope.busy = false;
 	$scope.formValid = false;
 
 	$scope.hideError = function () {
@@ -24,7 +24,7 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 			username = $scope.registerUser,
 			pass = $scope.registerPass,
 			formLogin;
-		$scope.loading = true;
+		$scope.busy = true;
 
 		console.log($scope.signupForm);
 
@@ -49,14 +49,14 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 			$accountsService.signup(email, username, pass)
 				.then(
 					function (status) {
-						$scope.loading = false;
+						$scope.busy = false;
 						$accountsService.login(email, pass)
 							.then(function () {
 								location.reload();
 							});
 					},
 					function (reason) {
-						$scope.loading = false;
+						$scope.busy = false;
 						switch(reason.err) {
 							case "ERR_EMAIL_EXISTS":
 								$scope.signupForm.$error.message = "Email is already registered";
@@ -68,7 +68,7 @@ angular.module('App.Controllers').controller('RegisterCtrl', function ($scope, $
 		}
 
 		if (!!$scope.signupForm.$error.message) {
-			$scope.loading = false;
+			$scope.busy = false;
 		}
 	};
 });

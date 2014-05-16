@@ -20,8 +20,14 @@
 			<a class="btn flat pass-reveal" ng-click="$showPass(signupForm.pass)"><i class="icon-eye-close"></i></a>
 		</div>
 		<button class="splash_Button splash_Button-Floating">
-			Finish
-			<i class="icon-refresh icon-spin" ng-if="loading"></i>
+			<span ng-if="!busy">Finish</span>
+			<div class="loading" ng-if="!!busy">
+				<div class="spinner-balls white">
+					<div class="bounce1"></div>
+					<div class="bounce2"></div>
+					<div class="bounce3"></div>
+				</div>
+			</div>
 		</button>
 	</form>
 	<div class="label" ng-show="signupForm.$error.message && signupForm.$dirty">
