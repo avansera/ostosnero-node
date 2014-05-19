@@ -141,13 +141,14 @@ angular.module('ostosNero', [
 
 
 		var target = 'loadCont',
-			spinnerTarget = document.getElementById(target);
+		spinnerTarget = document.getElementById(target);
 		spinner = new Spinner(spinnerOpts).spin(spinnerTarget);
 
 
 		// APPCACHE UPDATING =============
 		// Check if a new cache is available on page load.
 		window.addEventListener('load', function (e) {
+			FastClick.attach(document.body);
 			window.applicationCache.addEventListener('updateready', function (e) {
 				if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
 					// Browser downloaded a new app cache.
