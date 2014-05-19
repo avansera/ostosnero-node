@@ -1,5 +1,5 @@
 angular.module('App.Controllers')
-	.controller('ProductPageCtrl', function ($scope, $rootScope, $http, $q, $routeParams, $log, ProductService, spinner, listService, locationService, scroller, AlertService) {
+	.controller('ProductPageCtrl', function ($scope, $rootScope, $http, $q, $routeParams, $log, $filter, ProductService, spinner, listService, locationService, scroller, AlertService) {
 	/**
 	 * Url structure: /#/product/:productID/
 	 *
@@ -90,6 +90,7 @@ angular.module('App.Controllers')
 			$log.debug('Product Info', "local prices", prices);
 			$scope.prices = prices;
 			for (var p in prices) {
+				prices[p].price = $filter('currency')(prices[p].price, '');
 				$scope.placeholder = "";
 
 

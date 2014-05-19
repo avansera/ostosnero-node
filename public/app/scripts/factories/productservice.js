@@ -36,11 +36,12 @@ angular.module('App.Services').factory('ProductService', function ($http, $q, $l
 	function _updatePrice(productId, shopId, price) {
 		var dfd = $q.defer();
 		$http({
-			url: '../../api/product/prices/update/' + productId + '/' + shopId + '/' + price,
-			method: 'GET'
+			url: '/api/product/prices/update',
+			method: 'PUT',
+			data: {productId: productId, shopId: shopId, price: price}
+
 		})
 			.success(function(success){
-				if(!success.success) dfd.reject(success.error);
 				dfd.resolve();
 			})
 			.error(function(reason) {
