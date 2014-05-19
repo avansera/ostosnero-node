@@ -60,6 +60,7 @@ angular.module('App.Controllers')
 			.then(
 			function (status) {
 				NProgress.done();
+				AlertService.set('info', "List updated");
 				$scope.refreshing = false;
 			},
 			function(reason) {

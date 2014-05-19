@@ -49,10 +49,11 @@ angular.module('App.Controllers')
 	if (!!$routeParams.productID) {
 
 		$scope.inList = false;
-		//var productData = getProductService();
-		var productData = ProductService.product($routeParams.productID);
 
-		productData.then(function (data) {
+		if(!$scope.productInfo) {
+
+
+			ProductService.product($routeParams.productID).then(function (data) {
 				NProgress.inc();
 				console.log(data);
 				$scope.productInfo = data;
@@ -60,6 +61,7 @@ angular.module('App.Controllers')
 			function (reason) {
 				console.warn(reason);
 			});
+		}
 
 	}
 	else if (!!$routeParams && !!$routeParams.listItemID) {

@@ -73,12 +73,10 @@ angular.module('App.Services').factory('ProductService', function ($http, $q, $l
 
 				$http({
 					method: 'GET',
-					url: '../../api/product/' + productId
+					url: '/api/product/' + productId
 				})
 					.success(function (data) {
-
-						if(!data.success) dfd.reject(data.error);
-						dfd.resolve(data.data);
+						dfd.resolve(data);
 					})
 					.error(function (reason) {
 						dfd.reject(reason);

@@ -1,4 +1,4 @@
-angular.module('App.Controllers').controller('SearchCtrl', function ($rootScope, $scope, $route, ProductService, scroller, listService, storage) {
+angular.module('App.Controllers').controller('SearchCtrl', function ($rootScope, $scope, $route, ProductService, scroller, listService, storage, AlertService) {
 
 
     $scope.page = {
@@ -38,6 +38,7 @@ angular.module('App.Controllers').controller('SearchCtrl', function ($rootScope,
             .then(
                 function (status) {
 					resultElement.busy = false;
+					AlertService.set('success', "Added item to list");
 					$scope.success = resultElement;
                 },
                 function (reason) {
@@ -45,6 +46,10 @@ angular.module('App.Controllers').controller('SearchCtrl', function ($rootScope,
                 }
             );
     };
+
+	$scope.openProductInfo = function(product) {
+		$rootScope.productInfo = product;
+	};
 
 
     function fetchResults() {

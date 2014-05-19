@@ -18,14 +18,13 @@
         <div class="list search-results-container" id="product-search-results">
             <div class="list-item-wrapper" ng-repeat="result in results">
 
-                <div class="list-item search-result" ng-class="{active: success==result}">
-                    <a href="#/product/{{ result.product_id }}">
-                        <div class="list-item-thumb-wrapper"><img class="list-item-thumb" src="http://ostosnero.com/images/full/{{result.product_thumb}}" alt="{{result.product_name}}"/></div>
-                        <div class="list-item-info-wrapper">
-                            <!--<div class="list-item-brand">brand name</div>-->
-                            <div class="list-item-name">{{result.product_name}}</div>
-                        </div>
-                    </a>
+                <div class="list-item search-result" ng-class="{active: success==result}" ng-click="openProductInfo(result); $path('/product/' + result.product_id)">
+
+					<div class="list-item-thumb-wrapper"><img class="list-item-thumb" src="http://ostosnero.com/images/full/{{result.product_thumb}}" alt="{{result.product_name}}"/></div>
+					<div class="list-item-info-wrapper">
+						<!--<div class="list-item-brand">brand name</div>-->
+						<div class="list-item-name">{{result.product_name}}</div>
+					</div>
 
                     <div class="list-item-interactions-wrapper">
                         <a class="btn flat list-item-add" ng-click="addToList(result.product_id, result)"><i ng-class="{'icon-plus': !result.busy, 'icon-refresh icon-spin': !!result.busy}"></i></a>
