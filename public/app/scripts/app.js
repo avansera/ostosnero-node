@@ -117,6 +117,12 @@ angular.module('ostosNero', [
  * waiting for data.
  */
 	.run(function ($rootScope, $location, $q, $http, $log, $accountsService, storage, locationService) {
+
+		$rootScope.$on('$locationChangeStart', function(e, current, previous) {
+			if($location.path() === '/' && !!$rootScope.user) {
+				$location.path('/list');
+			}
+		});
 		$rootScope.loaded = false;
 		var spinner;
 
