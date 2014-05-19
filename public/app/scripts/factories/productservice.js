@@ -94,7 +94,6 @@ angular.module('App.Services').factory('ProductService', function ($http, $q, $l
 						method: 'GET'
 					})
 						.success(function(data, status) {
-							console.log(data);
 							if(status === 204) {
 								dfd.reject('no price information available');
 							}
