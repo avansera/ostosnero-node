@@ -50,7 +50,7 @@ angular.module('App.Controllers')
 
 		$scope.inList = false;
 
-		if(!$scope.productInfo) {
+		if(!$scope.productInfo || $scope.productInfo.product_id != $routeParams.productID) {
 
 
 			ProductService.product($routeParams.productID).then(function (data) {
