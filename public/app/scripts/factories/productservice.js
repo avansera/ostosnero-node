@@ -90,21 +90,22 @@ angular.module('App.Services').factory('ProductService', function ($http, $q, $l
 				if(!!location.lat && !!location.long) {
 					//console.o
 					$http({
-						url: '../../api/product/prices/' + id + '/' + location.lat + '/' + location.long,
+						url: '/api/product/prices/' + id + '/' + location.lat + '/' + location.long,
 						method: 'GET'
 					})
-						.success(function(data) {
+						.success(function(data, status) {
 							console.log(data);
-							if(!data.success) {
-								dfd.reject(data.error);
+							if(status === 204) {
+								dfd.reject('no price information available');
 							}
-
-							dfd.resolve(data.data);
+							dfd.resolve(data);
 						})
 						.error(function(reason) {
 							dfd.reject(reason);
 						});
 
+				} else {
+					dfd.reject("no location set");
 				}
 				return dfd.promise;
 			},

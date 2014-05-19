@@ -101,6 +101,8 @@ angular.module('App.Controllers')
 			scroller.construct(document.getElementById('productPage'));
 		},
 		function (reason) {
+			NProgress.done();
+			AlertService.set('warning', reason);
 		}
 	);
 
