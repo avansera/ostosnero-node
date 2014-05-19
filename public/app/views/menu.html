@@ -1,21 +1,14 @@
 <div id="menu" class="app-menu" ng-controller="MenuCtrl">
-	<div class="app-menu-item x2" ng-controller="MenuProfileCtrl">
+	<div class="app-menu-item" ng-controller="MenuProfileCtrl">
 		<div class="nav-profile">
-			<div class="avatar-wrapper">
-				<img class="avatar" src="{{ user.avatar_url }}" alt="user avatar">
-			</div>
 			<div class="info-wrapper">
-				<div class="user-info-wrapper">
-					<div class="user-info-name">{{ user.name }}</div>
-					<div class="user-info-email">{{ user.email }}</div>
-				</div>
 				<div class="stats-info-wrapper">
 					<div class="stats-info-item">
-						<div class="stats-item-value">{{ $formatPrice(user.stats.total_saved) }}&euro;</div>
+						<div class="stats-item-value">{{ user.user_stats.total_saved | currency }}</div>
 						<div class="stats-item-label">säästetty</div>
 					</div>
 					<div class="stats-info-item">
-						<div class="stats-item-value">{{ user.stats.shopping_trips }}</div>
+						<div class="stats-item-value">{{ user.user_stats.shopping_trips }}</div>
 						<div class="stats-item-label">ostoskerrat</div>
 					</div>
 				</div>

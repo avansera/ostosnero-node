@@ -19,7 +19,7 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 
 				$log.info(status);
 				if(!!data) {
-					$rootScope.user = data.user_info;
+					$rootScope.user = data;
 					mixpanel.identify(data.user_info.email);
 					mixpanel.people.set({
 						"$name": data.user_info.name,
@@ -53,7 +53,7 @@ angular.module('App.Services').factory('$accountsService', function ($rootScope,
 		})
 			.success(function (data) {
 
-				$rootScope.user = data.user_info;
+				$rootScope.user = data;
 
 				mixpanel.track("User login", {
 					"$email": data.user_info.email
