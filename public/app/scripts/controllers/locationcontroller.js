@@ -212,17 +212,17 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
 		var locationsTemp;
 		$log.info('remove location');
 		location.busy = true;
-		locationService.removeFromChosen(location).then(
-			function(status) {
-				location.success = true;
-				location.busy = false;
+		locationService.removeFromChosen(location)
+			.then(
+				function(status) {
+					location.success = true;
+					location.busy = false;
 
-			},
-			function(reason) {
-				$scope.errors.push(reason);
-				location.busy = false;
-			}
-		);
+				},
+				function(reason) {
+					$scope.errors.push(reason);
+					location.busy = false;
+				});
 
 		$scope.getChosen();
 	};

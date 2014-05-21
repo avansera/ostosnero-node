@@ -132,7 +132,7 @@ angular.module('App.Services')
 				var dfd = $q.defer();
 
 				$http({
-					url: '/api/location/remove/' + location.id,
+					url: '/api/location/remove/' + location.shop_id,
 					method: 'DELETE'
 				})
 					.success(function (status)
