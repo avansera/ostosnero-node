@@ -36,7 +36,7 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
 
 		if (term.length > 0) {
 			$log.debug("Location search term", term);
-			term = term.split(/[ ]{1,}/).join('|');
+			//term = term.split(/[ ]{1,}/).join('|');
 		} else {
 			$log.warn("missing location term");
 			//$scope.errors.push("Nothing to search for");

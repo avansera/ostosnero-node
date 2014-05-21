@@ -85,16 +85,16 @@ angular.module('App.Services')
 					url: "../../api/location/search/" + term,
 					method: "GET"
 				})
-					.success(function (data)
+					.success(function(data, status)
 					{
-						if (!data.success) {
-							dfd.reject(data.error);
+						if(status === 204) {
+							dfd.reject("ERR_NO_RESULTS");
 						}
 
 						mixpanel.track("Location search", {
 							"term": term
 						});
-						dfd.resolve(data.data);
+						dfd.resolve(data);
 					})
 					.error(function (reason)
 					{
