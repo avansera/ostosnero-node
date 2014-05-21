@@ -82,7 +82,7 @@ angular.module('App.Services')
 				var dfd = $q.defer();
 
 				$http({
-					url: "../../api/location/search/" + term,
+					url: "/api/location/search/" + term,
 					method: "GET"
 				})
 					.success(function(data, status)
@@ -109,15 +109,12 @@ angular.module('App.Services')
 				var dfd = $q.defer();
 
 				$http({
-					url: '../../api/location/add/' + location.id,
-					method: 'get'
+					url: '/api/location/add/',
+					method: 'PUT',
+					data: {shopId: location.id}
 				})
-					.success(function (status)
+					.success(function (data, status)
 					{
-						if (!status.success) {
-							dfd.reject(status.error);
-						}
-
 						mixpanel.track("Add location", {
 							"location_id": location.id
 						});
@@ -135,16 +132,12 @@ angular.module('App.Services')
 				var dfd = $q.defer();
 
 				$http({
-					url: '../../api/location/remove/' + location.id,
-					method: 'get'
+					url: '/api/location/remove/' + location.id,
+					method: 'DELETE'
 				})
 					.success(function (status)
 					{
-						if (!status.success) {
-							dfd.reject(status.error);
-						} else {
-							dfd.resolve();
-						}
+						dfd.resolve();
 					})
 					.error(function (reason)
 					{
@@ -157,16 +150,12 @@ angular.module('App.Services')
 				var dfd = $q.defer();
 
 				$http({
-					url: '../../api/location/saved',
+					url: '/api/location/saved',
 					method: 'get'
 				})
 					.success(function (data)
 					{
-						if (!data.success) {
-							dfd.reject(data.error);
-						} else {
-							dfd.resolve(data.data);
-						}
+						dfd.resolve(data);
 					})
 					.error(function (reason)
 					{
