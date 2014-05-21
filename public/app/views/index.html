@@ -103,11 +103,11 @@
 
 
     <!-- build:css styles/app.css -->
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="../styles/app.css">
     <!-- endbuild -->
 
   	<!-- build:css styles/nprogress.css -->
-	<link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
+	<link rel="stylesheet" href="../bower_components/nprogress/nprogress.css">
     <!-- endbuild -->
   </head>
   <body ng-app="ostosNero" ng-controller="GlobalCtrl">
@@ -116,25 +116,20 @@
     <![endif]-->
 
     <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
+      <script src="../bower_components/es5-shim/es5-shim.js"></script>
+      <script src="../bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
     <div class="app-container" id="container" ng-view></div>
     <div class="cover" id="loadCont" ng-hide="loaded"></div>
-	<div class="alert app-global" ng-show="!!appError">
-		<a class="close" ng-click="$close()">&times;</a>
-		<h3>Alert</h3>
-		{{ appError }}
-	</div>
     <!-- build:js scripts/angular.js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-i18n/angular-locale_fi.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-i18n/angular-locale_fi.js"></script>
     <!-- endbuild -->
 
 	<!-- start Mixpanel -->
@@ -147,15 +142,15 @@
 	<!-- end Mixpanel -->
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
     <!-- build:js scripts/scripts.js -->
-	<script src="bower_components/google-maps-utility-library-v3/geolocationmarker/src/geolocationmarker.js"></script>
-    <script src="bower_components/jquery/jquery.min.js"></script>
-    <script src="bower_components/ftscroller/lib/ftscroller.js"></script>
-    <script src="bower_components/spinjs/spin.js"></script>
-    <script src="bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="bower_components/ftellipsis/lib/index.js"></script>
+	<script src="../bower_components/google-maps-utility-library-v3/geolocationmarker/src/geolocationmarker.js"></script>
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/ftscroller/lib/ftscroller.js"></script>
+    <script src="../bower_components/spinjs/spin.js"></script>
+    <script src="../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../bower_components/ftellipsis/lib/index.js"></script>
     <!--<script src="bower_components/hammerjs/dist/hammer.js"></script>-->
-    <script src="bower_components/nprogress/nprogress.js"></script>
-    <script src="bower_components/AngularGM/angular-gm.js"></script>
+    <script src="../bower_components/nprogress/nprogress.js"></script>
+    <script src="../bower_components/AngularGM/angular-gm.js"></script>
     <script src="../scripts/visuals.js"></script>
     <!-- endbuild -->
 
