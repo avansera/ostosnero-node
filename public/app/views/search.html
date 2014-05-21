@@ -27,7 +27,7 @@
 					</div>
 
                     <div class="list-item-interactions-wrapper">
-                        <a class="btn flat list-item-add" ng-click="addToList(result.product_id, result)"><i ng-class="{'icon-plus': !result.busy, 'icon-refresh icon-spin': !!result.busy}"></i></a>
+                        <a class="btn flat list-item-add" ng-click="addToList(result.product_id, result); $event.stopPropagation()"><i ng-class="{'icon-plus': !result.busy, 'icon-refresh icon-spin': !!result.busy}"></i></a>
                     </div>
 
                 </div>
