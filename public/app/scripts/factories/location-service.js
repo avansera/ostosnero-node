@@ -63,12 +63,13 @@ angular.module('App.Services')
 			{
 				var dfd = $q.defer();
 				$http({
-					url: '../../api/location/info/' + lat + '/' + long,
+					url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&sensor=false',
 					method: 'get'
 				})
 					.success(function (data)
 					{
-						dfd.resolve(data);
+						var addressString = data.results[0].address_components[1].long_name + " " + data.results[0].address_components[0].long_name + ", " + data.results[0].address_components[2].long_name;
+						dfd.resolve(addressString);
 					})
 					.error(function (reason)
 					{
