@@ -54,7 +54,7 @@
                     </div>
 
 					<div class="interaction-wrapper">
-						<div class="interaction list-item-button" ng-click="removeLocation(location);$event.stopPropagation()"><i ng-class="{'icon-minus': !location.busy, 'icon-refresh icon-spin': !!location.busy}"></i></div>
+						<div class="interaction list-item-button" ng-click="removeLocation(location, $index);$event.stopPropagation()"><i ng-class="{'icon-minus': !location.busy, 'icon-refresh icon-spin': !!location.busy}"></i></div>
 					</div>
 
                 </div>

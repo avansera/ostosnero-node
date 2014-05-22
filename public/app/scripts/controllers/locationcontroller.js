@@ -204,17 +204,16 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
     }
 
 	$scope.toggleCurrentLocation = function() {
-
 		$scope.currentLocationEnabled = !$scope.currentLocationEnabled;
 	};
 
-	$scope.removeLocation = function(location) {
-		var locationsTemp;
-		$log.info('remove location');
+	$scope.removeLocation = function(location, index) {
+		$log.info('LOCATION', "Remove location");
 		location.busy = true;
 		locationService.removeFromChosen(location)
 			.then(
 				function(status) {
+					$scope.chosenLocations.splice(index, 1);
 					location.success = true;
 					location.busy = false;
 
