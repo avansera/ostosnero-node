@@ -213,11 +213,13 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
 			.then(
 				function(status) {
 					$scope.chosenLocations.splice(index, 1);
+					AlertService.set('info', "Location removed");
 					location.success = true;
 					location.busy = false;
 
 				},
 				function(reason) {
+					AlertService.set('warning', "Could not remove location");
 					$scope.errors.push(reason);
 					location.busy = false;
 				});
@@ -311,6 +313,7 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
 
 			locationService.addChosen(location).then(
 				function(status) {
+					AlertService.set('success', "Location saved");
 					location.success = true;
 					location.busy = false;
 				},
