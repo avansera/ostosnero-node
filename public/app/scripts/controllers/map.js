@@ -20,12 +20,12 @@ angular.module('App.Controllers')
 		var dfd = $q.defer();
 
 		$http({
-			url: '../../api/location/' + lat + '/' + long,
+			url: '/api/location/stores/' + lat + '/' + long,
 			method: 'get'
 		})
 			.success(function (stores)
 			{
-				dfd.resolve(stores.data);
+				dfd.resolve(stores);
 			})
 			.error(function (reason)
 			{
