@@ -17,7 +17,6 @@ angular.module('App.Controllers').controller('LocationCtrl', function($scope, $r
 		function(position) {
 			$scope.gettingCurrentLocation = false;
 			$rootScope.location = {latitude:position.coords.latitude, longitude:position.coords.longitude};
-			console.log($scope.currentCoords);
 		}
 	);
 

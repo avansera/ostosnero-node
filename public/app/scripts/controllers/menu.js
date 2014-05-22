@@ -1,22 +1,14 @@
 angular.module('App.Controllers').controller('MenuCtrl', function ($scope, $http, $q, $location, $accountsService)
 {
-	var width = window.innerWidth - 46;
-
-	$('#menu').width(width);
+	//document.getElementById('menu').style.width = window.innerWidth - 46;
 
 	$scope.go = function (path)
 	{
-		console.log(path);
 		$location.url(path);
 
-
-		console.log('menu!');
 		var page = $('.app-page'),
 			trans = window.innerWidth - 46,
 			transString = 'translate3d(' + trans + 'px, 0, 0)';
-
-		console.log('menu button clicked');
-		console.log(transString);
 
 
 		if (page.hasClass('nav-active')) {
